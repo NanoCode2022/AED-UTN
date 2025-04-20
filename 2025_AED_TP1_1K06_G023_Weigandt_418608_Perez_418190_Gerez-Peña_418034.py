@@ -1,6 +1,6 @@
 # ingreso de datos
 destinatario = input("ingrese nombre y apellido del destinatario: ")
-tipo_moneda = ('ARS', 'USD', 'EUR', 'GBP', 'JPY')
+tipo_moneda = ("ARS", "USD", "EUR", "GBP", "JPY")
 moneda_pagar = input("ingrese la moneda a pagar (ARS, USD, EUR, GBP, JPY): ")
 monto_nominal = float(input("ingrese el monto a enviar: "))
 
@@ -25,7 +25,7 @@ else:
     monto_base = 0
 
 if monto_base > 500000:
-    monto_final = round((81 * monto_base) / 100, 2)
+    monto_final = round(monto_base * 79 / 100, 2)
 else:
     monto_final = monto_base
 
