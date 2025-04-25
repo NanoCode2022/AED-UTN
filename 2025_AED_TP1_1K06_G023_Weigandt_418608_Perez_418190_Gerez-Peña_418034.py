@@ -5,7 +5,7 @@ moneda_pagar = input("ingrese la moneda a pagar (ARS, USD, EUR, GBP, JPY): ")
 monto_nominal = float(input("ingrese el monto a enviar: "))
 
 if tipo_moneda[2] in moneda_pagar:
-#si la moneda es EUR
+    # si la moneda es EUR
     monto_base = round((93 * monto_nominal) / 100, 2)
 
     if monto_base >= 0 and monto_base <= 10000:
@@ -21,11 +21,12 @@ if tipo_moneda[2] in moneda_pagar:
 
     elif monto_base > 50000:
         monto_base = round((84.6 * monto_base) / 100, 2)
-        
+
         if monto_base > 70000:
             monto_base = round((97 * monto_base) / 100, 2)
+    monto_final = monto_base
 else:
-# validacion de la moneda
+    # validacion de la moneda
     if tipo_moneda[0] in moneda_pagar:
         monto_base = round((95 * monto_nominal) / 100, 2)
 
