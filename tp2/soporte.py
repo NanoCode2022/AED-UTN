@@ -23,39 +23,29 @@ def operaciones_validas(mon_inv, desti_mal_iden):
 
 def calculo_monto_base(algoritmo,monto_nominal):
     comision = 0
-    print(algoritmo,'alg')
-
     if algoritmo == 1:
-        print('pasears')
-        comision = monto_nominal * 0.09
-
+        comision = (9 * monto_nominal) // 100
     if algoritmo == 2:
-        print('paseusd')
         if monto_nominal < 50000:
             comision = 0
-        elif monto_nominal < 80000:
-            comision = monto_nominal * 0.05
-        else:
-            comision = monto_nominal * 0.078
-
+        elif monto_nominal >= 50000 and monto_nominal < 80000:
+            comision = (5 * monto_nominal) // 100
+        elif monto_nominal >= 80000:
+            comision = (7.8 * monto_nominal) // 100
     if algoritmo == 3:
-        print('paseeurgba')
-        comision = 100  # comisión fija
+        comision = 100
         if monto_nominal > 25000:
-            comision += monto_nominal * 0.06
-
+            comision += (6 * monto_nominal) // 100
     if algoritmo == 4:
-        print('pasejpy')
         if monto_nominal <= 100000:
-            comision = 500  # comisión fija
+            comision = 500
         if monto_nominal > 100000:
             comision = 1000
     if algoritmo == 5:
-        print('pasears2')
         if monto_nominal < 500000:
             comision = 0
         if monto_nominal >= 500000:
-            comision += monto_nominal * 0.07
+            comision += (7 * monto_nominal) // 100
         if comision > 50000:
             comision = 50000
     monto_base = monto_nominal - comision
@@ -70,13 +60,13 @@ def calculo_monto_final(algoritmo,monto_base):
             impuesto = 0
         if monto_base > 300000:
             excedente = monto_base - 300000
-            impuesto = excedente * 0.25
+            impuesto = (25 * excedente) // 100
     if algoritmo == 2:
         if monto_base < 50000:
             impuesto = 50
         if monto_base >= 50000:
             impuesto = 1000
     if algoritmo == 3:
-        impuesto = monto_base * 0.03
+        impuesto = (3 * monto_base) // 100
     monto_final = monto_base - impuesto
     return monto_final
