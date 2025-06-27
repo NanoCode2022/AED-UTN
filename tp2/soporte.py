@@ -40,7 +40,7 @@ def calculo_monto_base(algoritmo,monto_nominal):
         if monto_nominal <= 100000:
             comision = 500
         if monto_nominal > 100000:
-            comision = 1000
+            comision = 100
     if algoritmo == 5:
         if monto_nominal < 500000:
             comision = 0
@@ -68,5 +68,7 @@ def calculo_monto_final(algoritmo,monto_base):
             impuesto = 1000
     if algoritmo == 3:
         impuesto = (3 * monto_base) // 100
+    if algoritmo == 4:
+        impuesto = 0
     monto_final = monto_base - impuesto
     return monto_final
